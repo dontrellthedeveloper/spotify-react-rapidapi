@@ -12,7 +12,7 @@ const Discover = () => {
 
   const {data, isFetching, error} = useGetTopChartsQuery();
 
-  // console.log(data.images)
+  console.log(data)
 
 
   const genreTitle = 'Pop';
