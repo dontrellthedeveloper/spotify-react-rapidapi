@@ -8,7 +8,7 @@ const Discover = () => {
 
 
   const genreTitle = 'Pop';
-  console.log(data.tracks);
+  console.log(data);
 
   if(isFetching) return <Loader title='Loading song...'/>
 
@@ -29,7 +29,7 @@ const Discover = () => {
       </div>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-      {data.tracks?.map((song, i) => (
+      {data?.tracks?.map((song, i) => (
           <SongCard
             key={song.key}
             song={song}
