@@ -12,6 +12,7 @@ const Discover = () => {
 
   const {data, isFetching, error} = useGetTopChartsQuery();
 
+  // console.log(data.images)
 
 
   const genreTitle = 'Pop';
@@ -36,7 +37,7 @@ const Discover = () => {
       </div>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-      {data?.tracks?.map((song, i) => (
+      { data?.map((song, i) => (
           <SongCard
             key={song.key}
             song={song}
