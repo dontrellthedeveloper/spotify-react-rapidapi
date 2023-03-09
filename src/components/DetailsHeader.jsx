@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PlayPause from '../components/PlayPause';
 
-const DetailsHeader = ({ artistId, artistData, songData }) => (
+const DetailsHeader = ({ artistId, artistData, songData,isPlaying, activeSong, song, handlePauseClick, handlePlayClick }) => (
   <div className="relative w-full flex flex-col">
     <div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 h-28" />
 
@@ -32,6 +33,20 @@ const DetailsHeader = ({ artistId, artistData, songData }) => (
             ? artistData?.attributes?.genreNames[0]
             : songData?.genres?.primary}
         </p>
+
+        {!artistId
+      ? (
+        <div className='mt-4'>
+        <PlayPause
+                isPlaying={isPlaying}
+                activeSong={activeSong}
+                song={song}
+                handlePause={handlePauseClick}
+                handlePlay={() => handlePlayClick(song)}
+              />  
+        </div>    
+        )
+      : null}
       </div>
     </div>
 

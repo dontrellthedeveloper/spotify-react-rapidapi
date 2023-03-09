@@ -25,7 +25,10 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
           </p>
         )}
         <p className="text-base text-gray-300 mt-1">
+        <Link to={song.artists ? `/artists/${song?.artists[0]?.adamid}` : '/top-artists'}>
+
           {artistId ? song?.attributes?.albumName : song?.subtitle}
+          </Link>
         </p>
       </div>
     </div>
