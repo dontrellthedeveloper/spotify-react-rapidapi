@@ -19,7 +19,7 @@ import {createApi, fakeBaseQuery, fetchBaseQuery} from '@reduxjs/toolkit/query/r
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://shazam-core.p.rapidapi.com',
         prepareHeaders: (headers) => {
-            headers.set('X-RapidAPI-Key','ae633046a4mshfb7980a0cc6c5fap132de4jsnb33395669c79');
+            headers.set('X-RapidAPI-Key', import.meta.env.VITE_SHAZAM_CORE_RAPID_API_KEY );
 
             return headers;
         }
@@ -28,7 +28,9 @@ import {createApi, fakeBaseQuery, fetchBaseQuery} from '@reduxjs/toolkit/query/r
         getTopCharts: builder.query({query: () => '/v1/charts/world'}),
         getSongDetails: builder.query({query: ({songid}) => `/v1/tracks/details?track_id=${songid}`}),
         getSongRelated: builder.query({query: ({songid}) => `/v1/tracks/related?track_id=${songid}`}),
-        getArtistDetails: builder.query({query: (artistId) => `/v2/artists/details?artist_id=${artistId}`})
+        getArtistDetails: builder.query({query: (artistId) => `/v2/artists/details?artist_id=${artistId}`}),
+        getSongsByCountry: builder.query({query: (countryCode) => `/v1/charts/country?country_code=${countryCode}`}),
+
     })
  })   
 
@@ -37,5 +39,7 @@ export const {
     useGetTopChartsQuery,
     useGetSongDetailsQuery,
     useGetSongRelatedQuery,
-    useGetArtistDetailsQuery
+    useGetArtistDetailsQuery,
+    useGetSongsByCountryQuery,
+
 } = shazamApi
