@@ -1,6 +1,8 @@
 version: 0.2
 
 env:
+  variables:
+    REACT_APP_API: "testing"
   parameter-store:
     VITE_SHAZAM_CORE_RAPID_API_KEY: "/spotify/geo-api-key"
     VITE_GEO_API_KEY: "/spotify/shazam-core-api-key"
